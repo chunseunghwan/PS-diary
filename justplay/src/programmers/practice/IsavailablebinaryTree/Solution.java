@@ -11,6 +11,7 @@ public class Solution {
 
     public int[] solution(long[] numbers) {
         int[] answer = {};
+        answer = new int[numbers.length];
         for (int i=0; i<numbers.length; i++ ){
             String binary = Long.toBinaryString(numbers[i]);
             int bianryLength = binary.length();
@@ -32,10 +33,11 @@ public class Solution {
     }
 
     boolean Iscanbinarytree(char[] tree, int checkstart, int checkend){
-        int root = (tree.length-1)/2;
-
+        int root = (checkend+checkstart)/2; //아 맞다. tree.length로 하면 안됨 ㅋ
+        System.out.println("checkstart:"+checkstart);
+        System.out.println("checkend:"+checkend);
         if (tree[root] == '0'){
-            for(int i = checkstart ; i<checkend; i++){
+            for(int i = checkstart ; i<=checkend; i++){ //끝까지 검사
                 if (tree[i] == '1') return false;
             }
 
