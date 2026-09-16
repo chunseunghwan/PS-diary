@@ -1,12 +1,16 @@
 package programmers.practice.IsavailablebinaryTree;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Solution {
 
 
     public static void main(String[] args){
         Solution sol = new Solution();
-        long[] l = {7, 42, 5};
-        sol.solution(l);
+        long[] l = {7,42,5,63,111,95};
+
+        Arrays.stream(sol.solution(l)).forEach(System.out :: println);
     }
 
     public int[] solution(long[] numbers) {
@@ -24,7 +28,8 @@ public class Solution {
             sb.append(binary);
 
             char[] tree = sb.toString().toCharArray();
-
+            System.out.println("########################");
+            System.out.println(tree);
             if(Iscanbinarytree(tree, 0, bianryLength-1)) answer[i]=1;
         }
 
@@ -33,11 +38,13 @@ public class Solution {
     }
 
     boolean Iscanbinarytree(char[] tree, int checkstart, int checkend){
-        int root = (checkend+checkstart)/2; //아 맞다. tree.length로 하면 안됨 ㅋ
+        if (checkstart>=checkend) return true; //fix
+
+        int root = (checkend+checkstart)/2;
         System.out.println("checkstart:"+checkstart);
         System.out.println("checkend:"+checkend);
         if (tree[root] == '0'){
-            for(int i = checkstart ; i<=checkend; i++){ //끝까지 검사
+            for(int i = checkstart ; i<=checkend; i++){
                 if (tree[i] == '1') return false;
             }
 
