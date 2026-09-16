@@ -30,7 +30,7 @@ public class Solution {
             char[] tree = sb.toString().toCharArray();
             System.out.println("########################");
             System.out.println(tree);
-            if(Iscanbinarytree(tree, 0, bianryLength-1)) answer[i]=1;
+            if(Iscanbinarytree(tree, 0, tree.length-1)) answer[i]=1;
         }
 
 
