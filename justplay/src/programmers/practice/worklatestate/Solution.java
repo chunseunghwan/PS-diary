@@ -12,23 +12,8 @@ public class Solution {
     }
     public long solution(int n, int[] works) {
         long answer = 0;
-//        boolean min = Arrays.stream(works).sum()>0;
-//        if (!min) {
-//            return answer;
-//        }
-//        while(n>0) {
-//            int maxIndex = IntStream.range(0, works.length)
-//                    .boxed()
-//                    .max((i, j) -> Integer.compare(works[i], works[j]))
-//                    .orElse(-1);
-//            works[maxIndex] = works[maxIndex]-1;
-//            n=n-1;
-//        }
-//
-//        answer = Arrays.stream(works).map(num->num*num).sum();
-//        return answer;
         long total_work = Arrays.stream(works).sum();
-        if (total_work>=n) return 0;
+        if (total_work<=n) return 0;
         PriorityQueue<Integer> pri_queue = new PriorityQueue<>(Comparator.reverseOrder());
         for (int w : works) pri_queue.add(w);
         while(n>0){
